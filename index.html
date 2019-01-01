@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <link href='http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css' type='text/css' rel='stylesheet' />
+      <script type='text/javascript' src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>FB排程發文機器人</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8">$(function(){
+      $(".flip").click(function(){
+          $(".panel").slideToggle("slow");
+          $(".xs1").toggle();
+          $(".xs2").toggle();
+        });});</script>
+        <script type="text/javascript" charset="utf-8">$(function(){
+          $(".flip2").click(function(){
+              $(".panel2").slideToggle("slow");
+              $(".xs1").toggle();
+              $(".xs2").toggle();
+            });});</script>
+            <link rel=stylesheet type="text/css" href="http://www.bootcss.com/p/buttons/css/buttons.css">
+            <link rel=stylesheet type="text/css" href="OOOF.css">
+    
+    
+   
+  </head>
+  <body onload='prettyPrint();'>
+    
+    <div class="main_page">
+      <div class="page_header floating_element">
+        <img src="kisspng-squidward-tentacles-bob-esponja-patrick-star-dab-u-unicorn-dab-5ae05e793ae118.5527748815246536892412.png"height="80" width="80" alt="Debian Logo" class="floating_element"/>
+        <div align="center"><span class="floating_element">
+           　　　　 FB排程發文機器人
+        </span></div>
+      </div>
+      <a href="https://wanglion.cc" class="button button-action button-rounded">首頁</a>
+      <a href="https://blog.wanglion.cc" class="button button-action button-rounded">部落格</a>
+      <a href="https://blog.wanglion.cc/906/cfbapi/" class="button button-action button-rounded">本首頁的教學文</a>
+      <a href="https://github.com/KotoriChiu/Kotori_FB_Post_Bot" class="button button-action button-rounded">Github</a>
+      <a href="https://wanglion.cc/maxresdefault.jpg" class="button button-action button-rounded">The DAB</a>
+      <div class="content_section floating_element">
+
+        <div class="flip"><span class="1">
+            <div class="section_header">
+          
+          如何運作的?
+            </div>
+      </span></div>
+
+      <div class="panel">
+          
+                這個發文機器人是基於Facebook的API功能 使用SDK來實現。<br>
+                我們選擇了C#來當作核心語言，只要在程式中設定好發文內容還有圖片還有最重要的發文時間，<br>
+                就能啟用它的功能-->時間到就會發出自己想發的文。
+          
+      </div>
+      <div class="flip2"><span class="2">
+        <div class="section_header">
+          <div id="changes"></div>
+                間略教學OWO
+        </div>
+      </span></div>
+      
+      <div class="panel2">
+        <div class="content_section_text">
+            
+            <pre class="prettyprint">   
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Dynamic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using Facebook; //請注意 如果你的安裝FB SDK步驟是對的 using Facebook;不能有紅色波浪底線
+              
+  namespace ConsoleApplicationFacebook{
+
+    class Program{
+
+        static void Main(string[] args){          
+            string AppID = "XXXXXXXXXXXXXXX";//這邊輸入應用程式ID
+            string AppSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";//這邊輸入應用程式密鑰
+            string UserId = "XXXXXXXXXXXXXXX";//這邊輸入發文ID
+            string mess = "text"; //""內就是FB的內容 若想要換行 請使用\r\n 例如:這是第一行\r\n第二行\r\n第三行\r\n第四行
+              
+            WebClient wc = new WebClient(); //每次重新取一次token
+            string masg = "https://graph.facebook.com/oauth/access_token?client_id="+AppID+"&amp;client_secret="+AppSecret+"&amp;grant_type=client_credentials";
+            string result = wc.DownloadString(masg);//自動取得發文授權碼
+            string access_token = result.Substring(17, 43); //取得token字串 取17~43的字串
+            // Console.Write(access_token); //驗證擷取的token字串是不是正確的 執行時CMD視窗會顯示你的access_token
+              
+            Facebook.FacebookClient client = new FacebookClient(access_token);
+              
+            client.Post(UserId + "/feed", new { message = mess });
+                          
+            Console.ReadKey();
+        }
+    }
+}
+          </pre>
+          
+        </div>
+      </div>
+
+        <div class="section_header">
+            <div id="docroot"></div>
+                Document Roots
+        </div>
+
+        <div class="content_section_text">
+            <p>
+                By default, Debian does not allow access through the web browser to
+                <em>any</em> file apart of those located in <tt>/var/www</tt>,
+                <a href="http://httpd.apache.org/docs/2.4/mod/mod_userdir.html" rel="nofollow">public_html</a>
+                directories (when enabled) and <tt>/usr/share</tt> (for web
+                applications). If your site is using a web document root
+                located elsewhere (such as in <tt>/srv</tt>) you may need to whitelist your
+                document root directory in <tt>/etc/apache2/apache2.conf</tt>.
+            </p>
+            <p>
+                The default Debian document root is <tt>/var/www/html</tt>. You
+                can make your own virtual hosts under /var/www. This is different
+                to previous releases which provides better security out of the box.
+            </p>
+        </div>
+
+        <div class="section_header">
+          <div id="bugs"></div>
+                Reporting Problems
+        </div>
+        <div class="content_section_text">
+          <p>
+                Please use the <tt>reportbug</tt> tool to report bugs in the
+                Apache2 package with Debian. However, check <a
+                href="http://bugs.debian.org/cgi-bin/pkgreport.cgi?ordering=normal;archive=0;src=apache2;repeatmerged=0"
+                rel="nofollow">existing bug reports</a> before reporting a new bug.
+          </p>
+          <p>
+                Please report bugs specific to modules (such as PHP and others)
+                to respective packages, not to the web server itself.
+          </p>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="validator">
+    </div>
+  </body>
+</html>
+

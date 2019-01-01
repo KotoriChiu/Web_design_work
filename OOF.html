@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<title>Bootstrap Basic Template</title>
+
+
+  <head>
+                <link href='http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css' type='text/css' rel='stylesheet' />
+                <script type='text/javascript' src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+                <script src="jquery-1.11.1.min.js"></script>
+                <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+        <script>
+                $(function(){
+        $(".flip").click(function(){
+            $(".panel").slideToggle("slow");
+            $(".xs1").toggle();
+            $(".xs2").toggle();
+          });});</script>
+          <link rel=stylesheet type="text/css" href="http://www.bootcss.com/p/buttons/css/buttons.css">
+           
+<style>
+        .flip {
+                margin: 0px;
+                padding: 5px;
+                text-align: center;
+                background: #E09697;
+                cursor: pointer;
+                font-family: 'Arial';
+        }
+
+        .panel {
+                margin: 0px;
+                padding: 5px;
+                text-align: center;
+                background: #e5eecc;
+                border: solid 1px #c3c3c3;
+                display: none;
+                font-family: 'Arial';
+                
+        }
+</style>
+
+
+</head>
+<body onload='prettyPrint();'>
+        <div class="flip"><span class="1">Read more</span></div>
+<div class="panel">一化科技e-work一化科技e-work一化科技e-work一化科技e-work</div>
+ 
+<a href="http://www.bootcss.com/" class="button button-action">Go</a>
+<a href="http://www.bootcss.com/" class="button button-action button-rounded">Go</a>
+<a href="http://www.bootcss.com/" class="button button-action button-pill">Go</a>
+<button class="button button-action button-square"><i class="fa fa-plus"></i></button>
+<button class="button button-action button-box"><i class="fa fa-plus"></i></button>
+<button class="button button-action button-circle"><i class="fa fa-plus"></i></button>
+  
+<pre class="prettyprint">
+                public class HelloWorld {
+                
+                    public static void main (String[] args) {
+                        System.out.println("Hello, world!");
+                    }
+                }
+                </pre>
+</body>
+
+
+</html>
