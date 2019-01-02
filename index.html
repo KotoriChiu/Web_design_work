@@ -1,37 +1,32 @@
 
 <!DOCTYPE html>
 <html>
+    
   <head>
+
       <link href='http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css' type='text/css' rel='stylesheet' />
       <script type='text/javascript' src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+      <script src="js/jquery-1.11.1.min.js"></script>
+      <script src="js/OOOOF.js"></script>
+      <link rel=stylesheet type="text/css" href="css/buttons.css">
+      <link rel=stylesheet type="text/css" href="css/OOOF.css">
+      
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>FB排程發文機器人</title>
-    <script src="jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8">$(function(){
-      $(".flip").click(function(){
-          $(".panel").slideToggle("slow");
-          $(".xs1").toggle();
-          $(".xs2").toggle();
-        });});</script>
-        <script type="text/javascript" charset="utf-8">$(function(){
-          $(".flip2").click(function(){
-              $(".panel2").slideToggle("slow");
-              $(".xs1").toggle();
-              $(".xs2").toggle();
-            });});</script>
-            <link rel=stylesheet type="text/css" href="http://www.bootcss.com/p/buttons/css/buttons.css">
-            <link rel=stylesheet type="text/css" href="OOOF.css">
+  
+    <title>FB發文機器人</title>
     
-    
-   
   </head>
-  <body onload='prettyPrint();'>
-    
+ 
+  <body onload='prettyPrint();' >
+      
+      <div id='7QSfebF5dRQ'></div>
+      
+      
     <div class="main_page">
       <div class="page_header floating_element">
-        <img src="kisspng-squidward-tentacles-bob-esponja-patrick-star-dab-u-unicorn-dab-5ae05e793ae118.5527748815246536892412.png"height="80" width="80" alt="Debian Logo" class="floating_element"/>
-        <div align="center"><span class="floating_element">
-           　　　　 FB排程發文機器人
+          <a href="https://wanglion.cc/maxresdefault.jpg"><img src="img/kisspng-squidward-tentacles-bob-esponja-patrick-star-dab-u-unicorn-dab-5ae05e793ae118.5527748815246536892412.png"height="80" width="80" alt="Debian Logo" class="floating_element"></a>
+        <div align="center"><span class="floating_element" style="color:rgb(255, 255, 255);"> 
+           　　　　 FB發文機器人OWO
         </span></div>
       </div>
       <a href="https://wanglion.cc" class="button button-action button-rounded">首頁</a>
@@ -41,7 +36,7 @@
       <a href="https://wanglion.cc/maxresdefault.jpg" class="button button-action button-rounded">The DAB</a>
       <div class="content_section floating_element">
 
-        <div class="flip"><span class="1">
+        <div class="flip" style=><span class="1">
             <div class="section_header">
           
           如何運作的?
@@ -51,20 +46,91 @@
       <div class="panel">
           
                 這個發文機器人是基於Facebook的API功能 使用SDK來實現。<br>
-                我們選擇了C#來當作核心語言，只要在程式中設定好發文內容還有圖片還有最重要的發文時間，<br>
-                就能啟用它的功能-->時間到就會發出自己想發的文。
+                我們選擇了C#來當作核心語言，只要在程式中設定好發文內容還有圖片，<br>
+                就能啟用它的功能。
           
       </div>
       <div class="flip2"><span class="2">
         <div class="section_header">
           <div id="changes"></div>
-                間略教學OWO
+                簡略教學OWO ((對沒錯 很簡略的那種
         </div>
       </span></div>
       
       <div class="panel2">
         <div class="content_section_text">
-            
+          <pre>
+            首先前言就是...先研究一下<a href="https://developers.facebook.com/docs/pages/access-tokens">FB API文件</a>會比較好做下去，不然準備燒腦啦~~~
+            <H1>1.註冊</H1>
+            因為我們得先成立一支機器人 所以我們先前往<a href="https://developers.facebook.com/?ref=pf">開發人員</a>頁面
+            <img class="alignnone " src="https://wanglion.cc/FBB/01.png" width="1106" height="548" />
+            然後尚未註冊過的朋友就先去註冊 註冊完會要求你建立新的應用程式<br>
+            那個名字就取自己喜歡的吧!!<br>
+            你取好的名字最後會以這個方式出現<br>
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/15.png" width="506" height="139" />
+            註冊完成後會來到這個頁面 請點選右上角的"<a href="https://developers.facebook.com/tools-and-support/">工具及支援</a>"
+            <img class="alignnone " src="https://wanglion.cc/FBB/05.png" width="986" height="488" />
+            之後點選<span style="color: #0000ff;">圖形API測試工具</span>會看到這畫面 點擊圖中右上角的應用程式 選擇你剛剛創好的應用程式
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/07.png" width="1068" height="949" /> 
+            點選右邊的<span style="color: #ff0000;">取得權杖</span>在選擇<span style="color: #ff0000;">取得用戶存取權杖</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/09.png" width="519" height="373" />
+
+            選擇<span style="color: #ff0000;">publish_actions</span> &amp; <span style="color: #ff0000;">user_photos</span> &amp; <span style="color: #ff0000;">user_posts </span>完成再點選<span style="color: #0000ff;">取得存取權杖</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/10.png" width="676" height="532" />
+
+            之後FB會要你的應用程式以你FB帳戶的身分繼續 <del>(其實就是要用你的帳戶身分發文阿)</del>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/11.png" width="616" height="607" />
+
+            然後選擇你的發文類型 (公開 朋友 私人 特定的人...等)
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/12.png" width="616" height="607" />
+
+            然後你就會看到你的access_token代碼出現了 <span style="color: #ff0000;">(這個代碼請先記下來)</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/13.png" width="1002" height="287" />
+
+            然後先來取得你的發文id 如果一切步驟都對的話access_token代碼下面那行你會看到<span style="color: #0000ff;">GET</span> --&gt;/<span style="color: #0000ff;">v2.10</span>/me?filds=id,name 直接點擊右手邊的<span style="color: #0000ff;">提交</span>
+            提交完成後 會顯示你的FB用戶名字 還有你的發文id <span style="color: #ff0000;">(這個發文id也請記下來)</span>
+
+            <img class="alignnone size-full wp-image-917" src="https://blog.wanglion.cc/wp-content/uploads/2017/08/Inked14_LI.jpg" alt="" width="997" height="433" />
+
+            然後再點擊右上角的我的應用程式回到剛剛你創的應用程式的主控板
+
+            之後你會看到你的<span style="color: #ff0000;">應用程式編號</span>以及<span style="color: #ff0000;">應用程式密鑰</span> 密鑰的話點右邊的<span style="color: #ff0000;">"顯示"</span>它就會出現了  這兩樣也都記下來<span style="color: #ff0000;"> (待會程式撰寫部分會用到)</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/17.png" width="1438" height="402" />
+
+            <h2>2.程式撰寫 (使用C#撰寫 用到的編輯器是<span style="color: #800080;">Visual Studio 2017</span>)</h2>
+            打開Visual Studio 2017之後新增一個專案
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/18.png" width="703" height="430" />
+
+            選擇"<span style="color: #ff0000;">Visual C#</span>"在選擇"<span style="color: #ff0000;">主控台應用程式(.NET Framework)</span>"然後確定
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/19.png" width="955" height="660" />
+
+            點選上方的<span style="color: #ff0000;">工具</span>找到<span style="color: #ff0000;">NuGet封裝管理員 </span>選擇<span style="color: #ff0000;">管理方案的NuGet套件</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/20.png" width="794" height="488" />
+
+            點選<span style="color: #ff0000;">瀏覽</span>後輸入<span style="color: #ff0000;">"facebook"</span>
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/21.png" width="720" height="360" />
+
+            找到一個名為<span style="color: #ff0000;">Facebook</span> <span style="color: #ff0000;">935k</span>次下載 <span style="color: #ff0000;">v7.0.6</span>的項目點擊它~(這是FB的SDK) (請注意下載次數&amp;版本號可能會隨著時間而有改變)
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/22.png" width="1019" height="852" />
+
+            然後再你創的ConsoleAppXX那個項目打勾 在點擊安裝
+
+            <img class="alignnone size-large" src="https://wanglion.cc/FBB/23.png" width="541" height="378" />
+
+            安裝好後回到<span style="color: #ff0000;">Program.cs</span>就可以開始打我們的程式碼了
+
+            <h1>The Code:</h1>
             <pre class="prettyprint">   
 using System;
 using System.Collections.Generic;
@@ -101,49 +167,170 @@ using Facebook; //請注意 如果你的安裝FB SDK步驟是對的 using Facebo
     }
 }
           </pre>
+          該輸入的資料輸入好之後 點擊上方的<span style="color: #ff0000;">"開始"  </span>程式就開始執行了
+這邊放個範例 我要發的內容是 <span style="color: #ff0000;">發文測試</span> 四個字 然後點擊圖中的<span style="color: #ff0000;">開始</span>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/25.png" width="985" height="761" />
+
+接下來會彈出一個CMD視窗 表示程式正在執行 若途中沒有顯示任何錯誤提示 那表示程式成功的執行了<del>(也就是那該死的文字內容成功發上去了)</del>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/26.png" width="1517" height="993" />
+
+我的FB動態牆視角
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/27.png" width="508" height="192" />
+
+到目前為止不管你的朋友還是陌生人都看不到你發的文
+Σ(*ﾟдﾟﾉ)ﾉ 蛤!? 看不到!? 是的沒錯因為我們在FB開發人員那裏剛創立的應用程式屬於還在<span style="color: #ff0000;">"開發階段"</span>並未公開
+
+用自己的帳號看是長這樣   是看的到的
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/28.png" width="1463" height="920" />
+
+用了陌生人視角看我的塗鴉牆(請注意 我機器人發的文 是公開並非私人)   沒有了 消失了OAO
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/29.png" width="1453" height="921" />
+
+用了爆肝凌大大的視角 也是相同情況^^       <span style="color: #ffffff;">我絕對 絕對 絕對 沒有說凌大大 超可愛的^_^</span>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/30.png" width="1438" height="918" />
+
+既然是開發階段,我們就要去發布它~
+也就是說 我們要回到開發人員頁面 然後到創立的應用程式主控台 你會發現名稱旁有個綠邊的圓圈(代表未上線)
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/31.png" width="1576" height="693" />
+
+我們點選左手邊的<span style="color: #ff0000;">"應用程式審查"</span>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/32.png" width="239" height="346" />
+
+將紅框中的<span style="color: #ff0000;">否</span>改成<span style="color: #ff0000;">是</span>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/33.png" width="956" height="689" />
+
+他會問你是否要公開 點擊<span style="color: #ff0000;">確認 </span> <del>公開就對了 講那麼多&gt;&lt;</del>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/34.png" width="479" height="174" />
+
+這樣算是完成了 你用機器人發的文 別人就可以看到了 回到主控台看名稱旁他也變成綠點點了
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/35.png" width="1904" height="707" />
+h2>3.簡易發文+圖程式編譯:   (注意! 本教學的圖片並不能從本地上傳圖片)</h2>
+先前只有發文 現在要加上圖片 若要加上發圖這個動作,先前的access_token取法就不適用了 先前取到的access_token是<span style="color: #ff0000;">App Token</span>
+而若要發圖片的話App Token似乎沒有權限(也就是圖片會發不上去)
+所以我們要改變access_token的取法 這次要取得的access_token是<span style="color: #ff0000;">User Token </span>
+我們先到圖形API測試工具 切成自己的應用程式 找到access_token (註:此access_token有時效存在 通常是1~2小時 失效的access_token就不能拿來發文)
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/13.png" width="1002" height="287" />
+我們點擊access_token旁的驚嘆號圖示在點擊<span style="color: #ff0000;">以存取權杖工具開啟</span>
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/36.png" width="1006" height="492" />
+
+點擊<span style="color: #0000ff;">Extend Access Token</span> (延長權杖 時效約兩個月)
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/37.png" width="1077" height="610" />
+
+FB會要求輸入密碼
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/38.png" width="457" height="240" />
+
+輸入完之後 即拿到了延長的access_token (時效兩個月)
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/39.png" width="1002" height="172" />
+
+我們將延長access_token(long_access_token我們簡稱為lat)複製起來 接下來要開始coding了
+
+<H1>The Code</H1>
+<pre class="prettyprint">   
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Dynamic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using Facebook;
+
+namespace ConsoleApplicationFacebook
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
           
+         string UserId = "XXXXXXXXXXXXXXX";//請輸入用戶ID
+         string mess = "請在此輸入發文內容"; //跳行請用\r\n
+
+         string access_token = "請在此輸入lat"; 
+
+           Facebook.FacebookClient client = new FacebookClient(access_token);
+          
+           client.Post(UserId + "/photos", new { url = "在此輸入圖片網址", message = mess }); //發出訊息+圖片
+
+           Console.ReadKey();
+           
+        }
+    }
+}
+            </pre>
+            如果想要發布圖片 你得將圖片發佈到圖片網站 例如:<a href="https://imgur.com/">imgur圖片上傳空間</a> 上傳教學:<a href="https://free.com.tw/imgur/">imgur 免費圖片空間註冊、使用教學</a>
+
+            然後取得圖片的連結 就可以把它放進程式當中
+            然後coding完就像這樣
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/40.png" width="1526" height="690" />
+
+然後一樣點擊上方的開始
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/41.png" width="1582" height="806" />
+
+一樣會有CMD彈出來 這次請讓他開久一點 因為圖片上傳需要些時間!!
+
+FB視角 (配合Blog發文+圖測試^^\r\n這是示範跳行的第二行\r\n這是示範跳行的第三行\r\n這是示範跳行的第四行\r\nPixivID=63098761 就能達到下面的跳行效果~)
+
+<img class="alignnone size-large" src="https://wanglion.cc/FBB/42.png" width="514" height="710" />
+</pre>
+
         </div>
       </div>
-
+      <div class="flip3"><span class="3">
         <div class="section_header">
-            <div id="docroot"></div>
-                Document Roots
+         
+                開發過程中所遇到的困難
         </div>
-
-        <div class="content_section_text">
-            <p>
-                By default, Debian does not allow access through the web browser to
-                <em>any</em> file apart of those located in <tt>/var/www</tt>,
-                <a href="http://httpd.apache.org/docs/2.4/mod/mod_userdir.html" rel="nofollow">public_html</a>
-                directories (when enabled) and <tt>/usr/share</tt> (for web
-                applications). If your site is using a web document root
-                located elsewhere (such as in <tt>/srv</tt>) you may need to whitelist your
-                document root directory in <tt>/etc/apache2/apache2.conf</tt>.
-            </p>
-            <p>
-                The default Debian document root is <tt>/var/www/html</tt>. You
-                can make your own virtual hosts under /var/www. This is different
-                to previous releases which provides better security out of the box.
-            </p>
+        </span></div>
+        <div class="panel3">
+          呃 大概就像以下的圖一樣吧OWO<br>
+          <a href="http://freegifmaker.me/images/2dWcD/"><img src="http://i.freegifmaker.me/1/5/4/6/4/3/15464324131808663.gif?1546432429" alt="gifs website"/></a><br/>
+          腦袋卡死 怎麼轉就是沒轉過來<br>
+            
         </div>
-
+        <div class="flip4"><span class="4">
         <div class="section_header">
           <div id="bugs"></div>
-                Reporting Problems
+                來點吸ㄎ一ㄤ
         </div>
+        </span></div>
+        <div class="panel4">
         <div class="content_section_text">
-          <p>
-                Please use the <tt>reportbug</tt> tool to report bugs in the
-                Apache2 package with Debian. However, check <a
-                href="http://bugs.debian.org/cgi-bin/pkgreport.cgi?ordering=normal;archive=0;src=apache2;repeatmerged=0"
-                rel="nofollow">existing bug reports</a> before reporting a new bug.
-          </p>
-          <p>
-                Please report bugs specific to modules (such as PHP and others)
-                to respective packages, not to the web server itself.
-          </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7QSfebF5dRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+        </div>
+        <div class="section_header">
+          <div id="bugs"></div>
+                MEME GIF
+        </div>
+        
+        <div class="panel5">
+        <div class="content_section_text">
+          MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME! MEME!
+            <img src="https://thumbs.gfycat.com/SociableTemptingGharial-small.gif" alt="gifs website"/>
+            <img src="https://avatars.mds.yandex.net/get-pdb/163339/76a38309-701f-4cf5-954d-df2c06e24b36/orig" alt="gifs website"/>
+            <img src="https://thumbs.gfycat.com/ConsciousAnyHoneycreeper-small.gif" alt="gifs website"/>
+            <img src="https://pa1.narvii.com/6385/656529279c02658f043228328e4e5d5367706e69_hq.gif" alt="gifs website"/>
+            <img src="https://i.kym-cdn.com/photos/images/original/001/279/809/172.gif" alt="gifs website"/>
 
+        </div>
+        </div>
 
 
 
@@ -151,6 +338,7 @@ using Facebook; //請注意 如果你的安裝FB SDK步驟是對的 using Facebo
     </div>
     <div class="validator">
     </div>
+    
   </body>
 </html>
 
